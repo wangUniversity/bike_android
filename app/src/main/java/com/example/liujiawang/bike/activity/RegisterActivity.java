@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -47,7 +48,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(!isSamePassword()){
                     Toast.makeText(RegisterActivity.this,"密码不一致",Toast.LENGTH_SHORT).show();
-                }else if(!isTrueEmail()){
+                }else if(!isTrueEmail(email.getText().toString())){
                     Toast.makeText(getApplicationContext(),
                             "邮箱格式错误",Toast.LENGTH_SHORT).show();
                 }else{
@@ -77,13 +78,19 @@ public class RegisterActivity extends AppCompatActivity {
         };
     }
     //判断邮箱格式是否正确
-    public boolean isTrueEmail() {
-        return true;
+    public boolean isTrueEmail(String strEmail) {
+        String strPattern = "^[a-zA-Z0-9]";
+        if (TextUtils.isEmpty(strPattern)) {
+            return false;
+        } else {
+            return strEmail.matches(strPattern);
+        }
     }
+
 
     //判断密码是否一致
     public boolean isSamePassword() {
-       // Log.d("tag",password.toString()+" "+password2.toString());
+        // Log.d("tag",password.toString()+" "+password2.toString());
         if(password.getText().toString().equals(password2.getText().toString())){
             return true;
         }
