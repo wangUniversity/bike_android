@@ -24,6 +24,7 @@ public class ResetPassActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if((setPass2.getText().toString().equals(setPass1.getText().toString()))){
+
                     Intent intent=new Intent(ResetPassActivity.this,LoginActivity.class);
                     startActivity(intent);
                 }else{

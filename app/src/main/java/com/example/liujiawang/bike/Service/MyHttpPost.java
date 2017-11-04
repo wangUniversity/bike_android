@@ -20,11 +20,8 @@ public class MyHttpPost {
     // 服务器地址
     private static String SERVER = "http://10.0.2.2:8080/";
     // 项目地址
-    private static String PROJECT = "LYPlayerServer/";
     // 请求超时
-    private static final int REQUEST_TIMEOUT = 0;
     // 读取超时
-    private static final int SO_TIMEOUT = 0;
 
     // 通过 POST 方式获取HTTP服务器数据
     public static String executeHttpPost(String servlet, List<NameValuePair> params) {
@@ -47,11 +44,11 @@ public class MyHttpPost {
 
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
-            connection.setConnectTimeout(8000);
-            connection.setReadTimeout(8000);
+            connection.setConnectTimeout(50000);
+            connection.setReadTimeout(50000);
             connection.setDoOutput(true);
             connection.setDoInput(true);
-            PrintWriter printWriter = new PrintWriter(connection.getOutputStream());
+            //PrintWriter printWriter = new PrintWriter(connection.getOutputStream());
             //printWriter.write(post);
             InputStream in = connection.getInputStream();
             reader = new BufferedReader(new InputStreamReader(in));
