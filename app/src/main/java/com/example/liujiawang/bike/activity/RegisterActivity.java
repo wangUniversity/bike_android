@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.liujiawang.bike.entity.BasicNameValuePair;
@@ -24,7 +25,7 @@ import java.util.List;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private Button register;
+    private TextView register;
     private EditText id;
     private EditText password;
     private  EditText password2;
@@ -38,7 +39,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        register = (Button) findViewById(R.id.register);
+        register = (TextView) findViewById(R.id.register);
         id = (EditText) findViewById(R.id.id);
         password = (EditText) findViewById(R.id.password);
         password2 = (EditText) findViewById(R.id.password2);
